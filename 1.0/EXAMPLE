@@ -1,0 +1,10 @@
+GIT_PASSWORD="some Password"
+URL_GIT=https://alamilla_config:$GIT_PASSWORD@bitbucket.org/alamilla/themostfamous.git
+docker run --name webapp -p 8001:80 -d -e "GIT_APP=$URL_GIT" alamilla/phalconphp
+
+docker run --name themostfamous --link mysql:mysql -p 8001:80 -d -e "GIT_APP=$URL_GIT" alamilla/phalconphp
+
+docker run --rm -p 80 -i -t -e "GIT_APP=$URL_GIT" alamilla/phalconphp bash
+
+ID_LAST_CONTAINER=$(docker ps -l -q)
+docker logs -f $ID_LAST_CONTAINER
