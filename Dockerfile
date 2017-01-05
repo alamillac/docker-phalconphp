@@ -1,8 +1,8 @@
 # phalconphp
 #
-# VERSION               1.0
+# VERSION               2.0
 
-FROM     alamilla/apache2-php
+FROM     alamilla/apache2-php:2.0
 MAINTAINER Andres F. Lamilla, "alamilla@gmail.com"
 
 # actualizacion repositorios
